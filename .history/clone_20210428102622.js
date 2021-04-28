@@ -64,14 +64,16 @@ function cloneObj(obj) {
 		}
 		if (Array.isArray(obj[i])) {
 			const copy = (items) =>
-				items.map((item) =>
-					Array.isArray(item) ? copy(item) : cloneObj(item)
-				);
+				items.map((item) => (Array.isArray(item) ? copy(item) : cloneObj(item)));
 			clone[i] = copy(obj[i]);
 		}
 	}
 	return clone;
 }
 
-let copyObj = cloneObj(info);
-console.log(copyObj);
+// let copyObj = cloneObj(info);
+// copyObj.subject.math.a = 20;
+// console.log(copyObj);
+// console.log('------------------------------------------');
+// console.log(info);
+
