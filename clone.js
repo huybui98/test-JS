@@ -74,4 +74,8 @@ function cloneObj(obj) {
 }
 
 let copyObj = cloneObj(info);
+
+copyObj.results[0].a = 'Hust';
 console.log(copyObj);
+console.log('----------------');
+console.log(info);
