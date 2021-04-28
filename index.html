@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form Validate</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="main">
+			<div class="container">
+				<h1 class="header">Đăng ký</h1>
+				<form action="" method="POST" class="form" id="form">
+					<div class="form__items">
+						<label for="fullname" class="form__label">Họ và tên</label>
+						<input
+							type="text"
+							name="fullname"
+							id="fullname"
+							class="fullname form__input"
+							placeholder="Eg: huybui98"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__items">
+						<label for="email" class="form__label">Email</label>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							class="email form__input"
+							placeholder="Eg: huybui98@gmail.com"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__items">
+						<label for="password" class="form__label">Mật khẩu</label>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							class="password form__input"
+							placeholder="Nhập mật khẩu"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__items">
+						<label for="pass-confirm" class="form__label"
+							>Nhập lại mật khẩu</label
+						>
+						<input
+							type="password"
+							name="pass__confirm"
+							id="pass__confirm"
+							class="pass__confirm form__input"
+							placeholder="Nhập lại mật khẩu"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<button class="form__btn">Đăng ký</button>
+				</form>
+			</div>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>
