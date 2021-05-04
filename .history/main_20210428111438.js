@@ -23,7 +23,7 @@ function validator(arr) {
 			let rules = saveRules[e.selector]; // lấy ra các rule của selector
 
 			// lặp qua từng rule và kiểm tra
-			for (let i = 0; i < rules.length; i++) {
+			for (let i = 0; i < rules.length; ++i) {
 				errorMess = rules[i](inputElement.value);
 				if (errorMess) {
 					break;
