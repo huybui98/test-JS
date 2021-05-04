@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Register Page</title>
+	</head>
+	<body>
+		<div class="main">
+			<div class="container">
+				<form action="login.html" method="GET" class="form" id="form">
+					<h1 class="header">Đăng ký</h1>
+					<div class="form__item">
+						<label for="username" class="label">User name</label>
+						<input
+							type="text"
+							name="username"
+							placeholder="Eg: User Name"
+							class="form__username"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__item">
+						<label for="email" class="label">Email</label>
+						<input
+							type="email"
+							name="email"
+							placeholder="Eg: username@gmail.com"
+							class="form__email"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__item">
+						<label for="password" class="label">Password</label>
+						<input
+							type="password"
+							name="password"
+							class="form__password"
+							placeholder="Please enter"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<div class="form__item">
+						<label for="confirm-pass" class="label">Confirm Password</label>
+						<input
+							type="password"
+							name="confirm-pass"
+							class="form__confirm-pass"
+							placeholder="Please enter"
+						/>
+						<span class="form__mess"></span>
+					</div>
+
+					<button class="btn">Đăng ký</button>
+				</form>
+			</div>
+		</div>
+
+		<script src="main.js"></script>
+		<script>
+			validator([
+				isRequired('.form__username'),
+				isEmail('.form__email'),
+				minLength('.form__password', 8),
+				isConfirm('.form__confirm-pass')
+			]);
+		</script>
+	</body>
+</html>
