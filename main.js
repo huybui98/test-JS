@@ -3,11 +3,10 @@ function validator(arr) {
 	const userNameInput = form['username'];
 	const emailInput = form['email'];
 	const passwordInput = form['password'];
-	const confirmPasswordInput = form['confirm-pass'];
 
 	arr.forEach((e) => {
-		let input = form.querySelector(e.selector);
-		let errElement = input.parentElement.querySelector('.form__mess');
+		const input = form.querySelector(e.selector);
+		const errElement = input.parentElement.querySelector('.form__mess');
 		input.onblur = function () {
 			if (e.test(input.value)) {
 				errElement.innerText = e.test(input.value);
@@ -25,41 +24,35 @@ function validator(arr) {
 	});
 
 	const account = JSON.parse(localStorage.getItem('account')) || [];
-	const addAccount = (userName, email, password, confirmPassword) => {
+	const addAccount = (userName, email, password) => {
 		account.push({
 			userName,
 			email,
-			password,
-			confirmPassword
+			password
 		});
 		localStorage.setItem('account', JSON.stringify(account));
 
-		return { userName, email, password, confirmPassword };
+		return { userName, email, password };
 	};
 
 	form.onsubmit = function (event) {
 		arr.forEach((e) => {
-			let input = form.querySelector(e.selector);
-			let errElement = input.parentElement.querySelector('.form__mess');
+			const input = form.querySelector(e.selector);
+			const errElement = input.parentElement.querySelector('.form__mess');
 			input.onblur();
 
 			if (errElement.innerText == '') true;
 			else event.preventDefault();
 		});
 
-		let check = account.every(
-			(element) => element.userName != userNameInput.value
+		const check = account.every(
+			(element) => element.userName !== userNameInput.value
 		);
-		if (check === false) {
+		if (!check) {
 			alert('Username is already taken. Please re-fill');
 			event.preventDefault();
 		} else {
-			addAccount(
-				userNameInput.value,
-				emailInput.value,
-				passwordInput.value,
-				confirmPasswordInput.value
-			);
+			addAccount(userNameInput.value, emailInput.value, passwordInput.value);
 		}
 	};
 }
@@ -92,7 +85,7 @@ const isConfirm = (selector) => ({
 	selector,
 	test: function (value) {
 		const valuePassword = document.querySelector('#form .form__password').value;
-		if (value === '') {
+		if (!value) {
 			return 'Vui lòng nhập trường này';
 		} else if (value === valuePassword) {
 			return undefined;
