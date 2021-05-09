@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Itim', cursive;
+	background-color: #e5e7eb;
+}
+
+.main {
+	width: 95%;
+	margin: 0 auto;
+	padding-top: 10px;
+	display: flex;
+}
+
+/* add food */
+#add-food {
+	width: 20%;
+	margin: 0 auto;
+}
+.head {
+	font-size: 50px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.group {
+	padding-bottom: 20px;
+}
+.group.invalid input {
+	border-color: #f87171;
+}
+.group.invalid .mess {
+	color: #f87171;
+}
+
+.title {
+	width: 110px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+}
+input {
+	flex: 1;
+	width: 100%;
+	padding: 10px;
+	border: 2px solid #6b7280;
+	border-radius: 3px;
+	font-size: 16px;
+	outline-color: #34d399;
+}
+input:hover {
+	border-color: #34d399;
+}
+.btn {
+	width: 50%;
+	cursor: pointer;
+	margin-top: 20px;
+	padding: 10px;
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	background-color: #f87171;
+}
+.btn.save {
+	display: none;
+}
+
+/* list food */
+#list-food {
+	flex: 1;
+	padding: 0 50px;
+}
+.list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+.list li {
+	flex: calc(100% / 3);
+	padding-bottom: 30px;
+}
+.list li > h2 {
+	font-size: 35px;
+}
+.list li > h2 > span {
+	color: #f87171;
+	margin-left: 10px;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+.list li p {
+	font-size: 25px;
+}
+.list li p > .special {
+	color: #f87171;
+	font-size: 35px;
+}
+.list li .icon {
+	font-size: 30px;
+	padding-top: 10px;
+	color: #1f2937;
+}
+.list li .icon-remove {
+	color: #f87171;
+}
+.list li .icon-edit {
+	color: #34d399;
+}
+.list li button {
+	margin-right: 50px;
+	border: none;
+	cursor: pointer;
+}
+
+/* header */
+.header {
+	padding: 20px 30px;
+}
+.header > h1 {
+	font-size: 30px;
+}
+.header__container {
+	display: flex;
+	padding: 20px 0;
+	justify-content: space-around;
+}
