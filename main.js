@@ -56,7 +56,7 @@ function checkID() {
 		return element.id !== id.value;
 	});
 	if (checkID) {
-		addFood(id.value, nameFood.value, price.value, rate.value);
+		addFood(id.value, addDots(nameFood.value, 10), price.value, rate.value);
 		render();
 		location.reload();
 	} else {
@@ -74,6 +74,15 @@ function addFood(id, nameFood, price, rate) {
 	});
 	localStorage.setItem('listFood', JSON.stringify(listFood));
 	return { id, nameFood, price, rate };
+}
+
+// add 3 dots
+function addDots(str, min) {
+	const dots = '...';
+	if (str.length > min) {
+		str = str.substr(0, min) + dots;
+	}
+	return str;
 }
 
 // render
