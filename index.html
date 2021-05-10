@@ -18,6 +18,7 @@
 						name="id"
 						class="header__id"
 						placeholder="Eg: 1 , 2 , 3 ,..."
+						onkeyup="search('h2',0,0)"
 					/>
 				</div>
 				<div class="header__group">
@@ -27,6 +28,7 @@
 						name="name"
 						class="header__name"
 						placeholder="Eg: slack,..."
+						onkeyup="search('span',0,1)"
 					/>
 				</div>
 				<div class="header__group">
@@ -36,6 +38,7 @@
 						name="price"
 						class="header__price"
 						placeholder="Eg: 1 , 2 , 3 ,..."
+						onkeyup="search('p',0,2)"
 					/>
 				</div>
 				<div class="header__group">
@@ -45,6 +48,7 @@
 						name="rate"
 						class="header__rate"
 						placeholder="Eg: 1 , 2 , 3 ,..."
+						onkeyup="search('p',1,3)"
 					/>
 				</div>
 			</div>
@@ -94,10 +98,6 @@
 					<button class="btn add">Add food</button>
 					<button class="btn save">Save food</button>
 				</form>
-
-				<!-- <div class="tool-filter">
-					<button class="filter">filter</button>
-				</div> -->
 			</div>
 
 			<div id="list-food">

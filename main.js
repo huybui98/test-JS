@@ -56,7 +56,7 @@ function checkID() {
 		return element.id !== id.value;
 	});
 	if (checkID) {
-		addFood(id.value, addDots(nameFood.value, 10), price.value, rate.value);
+		addFood(id.value, nameFood.value, price.value, rate.value);
 		render();
 		location.reload();
 	} else {
@@ -73,23 +73,19 @@ function addFood(id, nameFood, price, rate) {
 		rate
 	});
 	localStorage.setItem('listFood', JSON.stringify(listFood));
-	return { id, nameFood, price, rate };
-}
-
-// add 3 dots
-function addDots(str, min) {
-	const dots = '...';
-	if (str.length > min) {
-		str = str.substr(0, min) + dots;
-	}
-	return str;
 }
 
 // render
 function render() {
+	const addDots = (str, min) => {
+		if (str.length > min) {
+			str = str.substr(0, min) + '...';
+		}
+		return str;
+	};
 	const html = listFood.map((food, index) => {
 		return `<li>
-					<h2>Mã số: ${food.id} <span>${food.nameFood}</span> </h2>
+					<h2>Mã số: ${food.id} <span>${addDots(food.nameFood, 10)}</span> </h2>
 					<p>Price: <span class='special'>${food.price}$</span></p>
 					<p>Rate: ${food.rate} stars</p>
 					<button class="edit" onclick="editFood(${index})"><i class="fas fa-edit icon icon-edit"></i></button>
@@ -159,52 +155,17 @@ const searchName = document.querySelector('.header__name');
 const searchPrice = document.querySelector('.header__price');
 const searchRate = document.querySelector('.header__rate');
 const liElement = document.getElementsByTagName('li');
+const arrSearch = [searchId, searchName, searchPrice, searchRate];
 
-searchId.oninput = function () {
-	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchId.value.toUpperCase());
-		const searchIdText = item.getElementsByTagName('h2')[0].innerText;
-		if (searchIdText.match(regex)) {
-			item.style.display = 'block';
-		} else {
-			item.style.display = 'none';
-		}
+function search(tagElement, number, index) {
+	Array.from(liElement).filter((item) => {
+		const searchText = item.getElementsByTagName(`${tagElement}`)[number]
+			.innerText;
+		return searchText.includes(arrSearch[index].value.toUpperCase())
+			? (item.style.display = 'block')
+			: (item.style.display = 'none');
 	});
-};
-searchName.oninput = function () {
-	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchName.value.toUpperCase());
-		const searchIdText = item.getElementsByTagName('span')[0].innerText;
-		if (searchIdText.match(regex)) {
-			item.style.display = 'block';
-		} else {
-			item.style.display = 'none';
-		}
-	});
-};
-
-searchPrice.oninput = function () {
-	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchPrice.value);
-		const searchIdText = item.getElementsByTagName('p')[0].innerText;
-		if (searchIdText.match(regex)) {
-			item.style.display = 'block';
-		} else {
-			item.style.display = 'none';
-		}
-	});
-};
-searchRate.oninput = function () {
-	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchRate.value);
-		const searchIdText = item.getElementsByTagName('p')[1].innerText;
-		if (searchIdText.match(regex)) {
-			item.style.display = 'block';
-		} else {
-			item.style.display = 'none';
-		}
-	});
-};
+}
 
 // Validate form
 const isRequired = (selector) => ({
@@ -219,7 +180,7 @@ const isIntegerPrice = (selector) => ({
 	test: function (value) {
 		if (!value) return 'Vui lòng nhập trường này';
 		else if (value > 0) return undefined;
-		else return 'Giá tiền đươc nhập không đúng';
+		return 'Giá tiền đươc nhập không đúng';
 	}
 });
 
@@ -228,7 +189,7 @@ const isRate = (selector) => ({
 	test: function (value) {
 		if (!value) return 'Vui lòng nhập trường này';
 		else if (value <= 5 && value >= 1) return undefined;
-		else return 'Đánh giá của bạn không đúng';
+		return 'Đánh giá của bạn không đúng';
 	}
 });
 
