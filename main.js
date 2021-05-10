@@ -182,9 +182,10 @@ searchName.oninput = function () {
 		}
 	});
 };
+
 searchPrice.oninput = function () {
 	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchPrice.value.toUpperCase());
+		const regex = new RegExp(searchPrice.value);
 		const searchIdText = item.getElementsByTagName('p')[0].innerText;
 		if (searchIdText.match(regex)) {
 			item.style.display = 'block';
@@ -195,7 +196,7 @@ searchPrice.oninput = function () {
 };
 searchRate.oninput = function () {
 	Array.from(liElement).forEach((item) => {
-		const regex = new RegExp(searchRate.value.toUpperCase());
+		const regex = new RegExp(searchRate.value);
 		const searchIdText = item.getElementsByTagName('p')[1].innerText;
 		if (searchIdText.match(regex)) {
 			item.style.display = 'block';
