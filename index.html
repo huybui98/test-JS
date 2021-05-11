@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>CRUD Food</title>
+	</head>
+	<body>
+		<div class="main">
+			<div id="add-food">
+				<form action="" method="GET" id="form">
+					<h1 class="head">Tools</h1>
+					<div class="group">
+						<label for="name" class="title">Name Food</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							placeholder="Eg: Noodle,..."
+						/>
+						<span class="mess"></span>
+					</div>
+					<div class="group">
+						<label for="price" class="title">Price</label>
+						<input
+							type="number"
+							name="price"
+							id="price"
+							placeholder="Eg: 1,2,3..."
+						/>
+						<span class="mess"></span>
+					</div>
+					<div class="group">
+						<label for="rate" class="title">Rate</label>
+						<input
+							type="number"
+							name="rate"
+							id="rate"
+							placeholder="Eg: 1,2,3..."
+						/>
+						<span class="mess"></span>
+					</div>
+
+					<button class="btn add">Add food</button>
+					<button class="btn save">Save food</button>
+				</form>
+			</div>
+
+			<div id="list-food">
+				<h1 class="head">Foods List</h1>
+				<ul class="list"></ul>
+			</div>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
+</html>
