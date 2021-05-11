@@ -150,18 +150,12 @@ function editFood(index) {
 }
 
 // search/filter by field
-const searchId = document.querySelector('.header__id');
-const searchName = document.querySelector('.header__name');
-const searchPrice = document.querySelector('.header__price');
-const searchRate = document.querySelector('.header__rate');
 const liElement = document.getElementsByTagName('li');
-const arrSearch = [searchId, searchName, searchPrice, searchRate];
-
-function search(tagElement, number, index) {
+function search(tagElement, number, event) {
 	Array.from(liElement).filter((item) => {
 		const searchText = item.getElementsByTagName(`${tagElement}`)[number]
 			.innerText;
-		return searchText.includes(arrSearch[index].value.toUpperCase())
+		return searchText.includes(event.target.value.toUpperCase())
 			? (item.style.display = 'block')
 			: (item.style.display = 'none');
 	});
